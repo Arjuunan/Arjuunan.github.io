@@ -23,39 +23,59 @@
                     <ul>
                         <li><a href="home.html"></i>Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="build.html">Build</a></li>
+                        <li><a href="">Build</a></li>
                         <li><a href="search.html">Search</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
         </section>
 
-        <!-- Contact -->
+        <!-- Build -->
         <section class="Home">
-            <div class="contact-text-box">
-                <h1>Contact</h1>
+            <div class="build-text-box">
+                <h1>Your PC</h1>
                 <br>
                 <div class="container">
-                    <form action="">
-                  
-                      <label for="name">Name</label>
-                      <input type="text" id="name" name="name" placeholder="Your name..">
+                    <form action="result.html">
+                        <div class="slidecontainer">
+                            <label for="name">Budget: $<span id="demo"></span></label>
+                            <input type="range" min="200" max="5000" value="2600" class="slider" id="myRange" step="50">
+                        </div>
+                        <br>
 
-                      <label for="email">Email</label>
-                      <input type="text" id="email" name="email" placeholder="Your email..">
-                  
-                      <label for="subject">Message</label>
-                      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                      <br><br>
-                  
-                      <input type="submit" value="Submit">
-                  
+                        <label for="usagelab">Usage:</label><br>
+                        <div class="use">
+                            <input type="radio" id="gaming" name="usage" value="gaming">
+                            <label for="gaming">Gaming</label><br>
+                            <input type="radio" id="content" name="usage" value="content">
+                            <label for="content">Content Creation (3D Design, Video, etc...)</label><br>
+                            <input type="radio" id="business" name="usage" value="business">
+                            <label for="business">Business/School (Microsoft Office, Email, etc...)</label>
+                        </div>
+                        <br>
+
+                        <label for="add">Additional Info:</label><br>
+                        <div class="use">
+                            <input type="checkbox" id="add1" name="add1" value="RGB">
+                            <label for="add1">RGB</label><br>
+                            <input type="checkbox" id="add2" name="add2" value="Side-window">
+                            <label for="add2">Side-window</label><br>
+                            <input type="checkbox" id="add3" name="add3" value="Quiet">
+                            <label for="add3">Quiet</label><br>
+                            <input type="checkbox" id="add4" name="add4" value="Water-cooling">
+                            <label for="add4">Water-cooling</label>
+                        </div>
+                        <br>
+
+                        <input type="submit" value="Submit">
                     </form>
                   </div>
             </div>
         </section>
+
+        
 
         <!-- Footer -->
         <section class="footer">
@@ -76,6 +96,16 @@
             }
             function hideMenu(){
                 navLinks.style.right = "-200px";
+            }
+
+            //Slider
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value; // Display the default slider value
+
+            // Update the current slider value (each time you drag the slider handle)
+            slider.oninput = function() {
+                output.innerHTML = this.value;
             }
         </script>
     </body>
