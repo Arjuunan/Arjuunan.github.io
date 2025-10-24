@@ -33,7 +33,28 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-T6ZB3EDKR3');
+  gtag('config', 'G-T6ZB3EDKR3', {
+    'debug_mode': true,
+    'send_page_view': true,
+    'transport_type': 'beacon'
+  });
+  
+  // Add event to verify GA is working
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if gtag is defined
+    if (typeof gtag === 'function') {
+      console.log('Google Analytics loaded successfully');
+      // Send a test event
+      gtag('event', 'page_view_test', {
+        'event_category': 'engagement',
+        'event_label': 'test_event',
+        'non_interaction': true
+      });
+      console.log('Test event sent to Google Analytics');
+    } else {
+      console.error('Google Analytics not loaded properly');
+    }
+  });
 </script>
 
 </head>
